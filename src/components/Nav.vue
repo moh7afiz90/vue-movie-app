@@ -1,5 +1,5 @@
 <template>
- <v-toolbar dark color="indigo">
+ <v-toolbar dark color="red darken-2">
    <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
   <v-toolbar-title class="white--text">Vue TMDB</v-toolbar-title>
   <v-spacer></v-spacer>
