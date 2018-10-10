@@ -11,7 +11,7 @@
             wrap
             >
             <v-flex
-              sm6 md3 lg3 xs12
+              sm6 md4 lg3 xs12
               v-for="movie in movies"
               :key="movie.id"
               >
