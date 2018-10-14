@@ -26,14 +26,12 @@
 <script>
 import Movie from './MoviesListCard.vue'
 import axios from 'axios';
-// import {API_KEY} from '../global'
-import {imgURL} from '../../config.js'
+import {imgURL} from '../../../config.js'
  export default {
   data: function(){
    return {
      movies: [],
      imgURL: imgURL,
-    //  overview: movie.overview
    }
   },
   components: {

@@ -2,9 +2,7 @@
  <v-app>
    <v-flex>
      <v-card 
-      :class="{'ma-0': 
-        $vuetify.breakpoint.smAndDown, 
-        'ma-1': $vuetify.breakpoint.mdAndUp}"
+      :class="{'ma-0':$vuetify.breakpoint.smAndDown,'ma-0': $vuetify.breakpoint.mdAndUp}"
       >
       <v-img
         :src="imgURL + movie.poster_path"
@@ -122,7 +120,7 @@
 <script>
 // import MovieDetails from './MoviesListCardDetails.vue'
 import moment from 'moment'
-import {imgURL} from '../../config.js'
+import {imgURL} from '../../../config.js'
 export default {
   props: ['movie'],
   data: function(){

@@ -18,6 +18,11 @@ app.get("/api/movie", (req, res, next) => {
     res.status(200).json(response.data);
   });
 });
+app.get("/api/tv", (req, res, next) => {
+  axios.get(`${apiURL}/tv/popular/${api_key}`).then(response => {
+    res.status(200).json(response.data);
+  });
+});
 
 console.log("".concat(apiURL, api_key));
 
