@@ -18,8 +18,8 @@
               length="10" 
               size="10"
               readonly
-              background-color="red lighten-4"
-              color="red darken-2"
+              background-color="#E8F5E9"
+              color="#01d277"
               v-model="movie.vote_average"
               ></v-rating>
           </div>
@@ -37,7 +37,7 @@
             <v-btn
               class="text-xs"
               slot="activator"
-              color="red darken-2"
+              color="#01d277"
               dark
               round
               center
@@ -47,7 +47,7 @@
             <v-card
               dark
               flat
-              color="red darken-2"
+              
               class="text--white"
               >
               <v-container
@@ -102,8 +102,8 @@
                     length="10" 
                     size="14"
                     readonly
-                    color="white"
-                    background="grey"
+                    color="#01d277"
+                    background="#E8F5E9"
                     v-model="movie.vote_average"
                     ></v-rating>
                 </v-card-actions>

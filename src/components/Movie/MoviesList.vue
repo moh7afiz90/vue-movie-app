@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-center>   
-    <v-flex xs12>
+    <v-flex class="pt-4" xs12>
         <v-container
           fluid
           flat

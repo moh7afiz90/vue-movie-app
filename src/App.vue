@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <v-app id="inspire" dark>
-      <v-toolbar dark color="red darken-2">
+      <v-toolbar 
+        fixed 
+        dark 
+        scroll-off-screen="false"
+        color="#01d277"
+        >
         <v-toolbar-side-icon
           @click.stop="drawer = !drawer"
           >
@@ -21,20 +26,32 @@
       <!-- <Drawer :drawer="drawer"/> -->
       <v-navigation-drawer
         v-model="drawer"
-        absolute
+        fixed
+        :mini-variant="mini"
+        mini-variant-width="80"
         temporary
         >
-        <v-list>
+        <v-list class="pt-0">
+          <v-list-tile avatar tag="div">
+            <v-list-tile-avatar 
+              :tile="tile"
+              :size="size"
+              >
+              <img :src="tmdbImg">
+            </v-list-tile-avatar>
+          </v-list-tile>
+        </v-list>
+        <v-list class="pt-0" dense>
+          <v-divider light></v-divider>
           <v-list-tile
             v-for="item in items"
             :key="item.title"
             >
+
             <v-list-tile-action>
-              <v-icon>{{ item.icon }}</v-icon>
+              <v-icon>{{item.icon}}</v-icon>
             </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile-content>
+
           </v-list-tile>
         </v-list>
       </v-navigation-drawer>
@@ -61,12 +78,15 @@ export default {
     return {
       drawer: null,
         items: [
-          { title: 'Movies', icon: 'dashboard' },
-          { title: 'TV Series', icon: 'question_answer' }
+          { title: 'Movies', icon: 'local_movies' },
+          { title: 'TV Series', icon: 'live_tv' }
         ],
-        mini: false,
+        mini: true,
         right: null,
-        tmdbImg: 'https://www.themoviedb.org/assets/1/v4/logos/408x161-powered-by-rectangle-green-bb4301c10ddc749b4e79463811a68afebeae66ef43d17bcfd8ff0e60ded7ce99.png'
+        tmdbImg:'https://www.themoviedb.org/assets/1/v4/logos/208x226-stacked-green-9484383bd9853615c113f020def5cbe27f6d08a84ff834f41371f223ebad4a3c.png',
+        tile: true,
+        size: 50,
+        invertedScroll: false
     }
   }
 }
