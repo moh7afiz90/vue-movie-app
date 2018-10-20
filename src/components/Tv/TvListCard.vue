@@ -5,43 +5,44 @@
       :class="{'ma-0':$vuetify.breakpoint.smAndDown,'ma-0': $vuetify.breakpoint.mdAndUp}"
       >
       <v-img
-        :src="imgURL + movie.poster_path"
+        :src="imgURL + episode.poster_path"
         aspect-ratio="0.70"
-      ></v-img>
-      <v-card-title primary-title>
+      >
+      </v-img>
+       <v-card-title primary-title>
         <div>
-          <p class="title text-sm-center">{{movie.title }}</p>
-          <div class="text-wrap">{{movie.overview | sliceText}}</div>
+          <p class="title text-sm-center">{{episode.name }}</p>
+          <div class="text-wrap">{{episode.overview | sliceText}}</div>
           <div>
             <v-rating
               class="text-sm-center" 
               length="10" 
-              size="8"
+              size="10"
               readonly
               background-color="#E8F5E9"
               color="#01d277"
-              v-model="movie.vote_average"
+              v-model="episode.vote_average"
               ></v-rating>
           </div>
         </div>
       </v-card-title>
       <v-divider></v-divider>
       <v-card-actions>
-        <!-- <v-btn class="text-sm-center" flat color="orange">Share</v-btn>
-        <v-btn flat color="orange">Explore</v-btn> -->
         <div class="text-xs-center">
           <v-dialog
             v-model="dialog"
             max-width="600"
             >
             <v-btn
+              class="text-xs"
               slot="activator"
               color="#01d277"
-              round
+              dark
               outline
-              block
+              round
+              center
               >
-              details
+              Details
             </v-btn>
             <v-card
               dark
@@ -59,13 +60,13 @@
                   <v-flex xs12>
                     <v-card-title>
                       <div>
-                        <p class="headline text-sm-center">{{movie.title}} <strong>({{ moment(movie.release_date).format('YYYY') }})</strong></p>
+                        <p class="headline text-sm-center">{{episode.name}} <strong>({{ moment(episode.release_date).format('YYYY') }})</strong></p>
                       </div>
                     </v-card-title>
                   </v-flex>
                   <v-flex xs5>
                     <img 
-                      :src="imgURL + movie.poster_path" 
+                      :src="imgURL + episode.poster_path" 
                       height="350px"
                       contain
                       />
@@ -73,7 +74,7 @@
                   <v-spacer></v-spacer>
                   <v-flex xs7>
                     <div class="subheading">
-                      {{movie.overview}}
+                      {{episode.overview}}
                     </div>
                     <v-divider></v-divider>
                     <div class="text-xs-center">
@@ -89,7 +90,7 @@
                 <v-card-actions class="title pa-3">
                   <div>
                     <div class="">Rating</div>
-                    <span class="caption whtie--text">{{movie.vote_count}} <strong>voting counts</strong></span>
+                    <span class="caption whtie--text">{{episode.vote_count}} <strong>voting counts</strong></span>
                   </div>
                   <br>
                   <span class="caption">
@@ -102,7 +103,7 @@
                     readonly
                     color="#01d277"
                     background="#E8F5E9"
-                    v-model="movie.vote_average"
+                    v-model="episode.vote_average"
                     ></v-rating>
                 </v-card-actions>
               </v-container>
@@ -115,12 +116,14 @@
  </v-app>
 </template>
 
+
+
 <script>
 // import MovieDetails from './MoviesListCardDetails.vue'
 import moment from 'moment'
 import {imgURL} from '../../../config.js'
 export default {
-  props: ['movie'],
+  props: ['episode'],
   data: function(){
     return {
       imgURL: imgURL,
@@ -144,3 +147,4 @@ export default {
 <style scoped>
 
 </style>
+

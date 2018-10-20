@@ -1,22 +1,69 @@
 <template>
   <v-navigation-drawer
     v-model="drawer"
-    absolute
+    fixed
+    :mini-variant="mini"
+    mini-variant-width="80"
     temporary
     >
-    <v-list>
-      <v-list-tile
-        v-for="item in items"
-        :key="item.title"
-        >
+      <v-list class="pt-1">
+        <v-list-tile avatar tag="div">
+          <v-list-tile-avatar 
+            :tile="tile"
+            :size="size"
+            >
+            <img :src="tmdbImg">
+          </v-list-tile-avatar>
+        </v-list-tile>
+      </v-list>
+    <v-list class="pt-0" dense>
+      <v-divider light></v-divider>
+      <v-list-tile class="pt-4">
         <v-list-tile-action>
-          <v-icon>{{ item.icon }}</v-icon>
+        <v-btn
+          flat
+          @click="navigateToHome"
+          fab
+          large
+          color="#01d277"
+          :loading="loading4" 
+          @click.native="loader = 'loading4'"
+          >
+          <v-icon>home</v-icon>
+        </v-btn>
         </v-list-tile-action>
-        <v-list-tile-content>
-          <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-        </v-list-tile-content>
       </v-list-tile>
-    </v-list>
+      <v-list-tile class="pt-3">
+        <v-list-tile-action>
+          <v-btn
+            flat
+            @click="navigateToMovies"
+            fab
+            large
+            color="#01d277"
+            :loading="loading4" 
+            @click.native="loader = 'loading4'"
+            >
+            <v-icon>local_movies</v-icon>
+          </v-btn>
+        </v-list-tile-action>
+      </v-list-tile>
+      <v-list-tile class="pt-3">
+      <v-list-tile-action>
+        <v-btn
+          @click="navigateToSeries"
+          large
+          flat
+          color="#01d277"
+          :loading="loading4" 
+          @click.native="loader = 'loading4'"
+          fab
+          >
+          <v-icon>live_tv</v-icon>
+        </v-btn>
+      </v-list-tile-action>
+      </v-list-tile>
+      </v-list>
   </v-navigation-drawer>
 </template>
 
@@ -26,15 +73,37 @@
   name: '',
   data(){
    return {
-        drawer: null,
-        items: [
-          { title: 'Movies', icon: 'dashboard' },
-          { title: 'TV Series', icon: 'question_answer' }
-        ],
-        mini: false,
-        right: null,
-        tmdbImg: 'https://www.themoviedb.org/assets/1/v4/logos/408x161-powered-by-rectangle-green-bb4301c10ddc749b4e79463811a68afebeae66ef43d17bcfd8ff0e60ded7ce99.png'
+      drawer: null,  
+      mini: true,
+      right: null,
+      tmdbImg:'https://www.themoviedb.org/assets/1/v4/logos/208x226-stacked-green-9484383bd9853615c113f020def5cbe27f6d08a84ff834f41371f223ebad4a3c.png',
+      tile: true,
+      size: 50,
+      invertedScroll: false,
+      height: 50,
+      loader: null,
+      scrollOffScreen: false,
+      loading4: false
    }
+  },
+  watch: {
+    loader: function(){
+      const a = this.loader
+      this[a] = !this[a]
+      setTimeout(() => (this[a] = false), 500)
+      this.loader = null
+    }
+  },
+   methods: {
+    navigateToHome(){
+      this.$router.push({path: '/'})
+    },
+    navigateToMovies(){
+      this.$router.push({path: '/popular/movies'})
+    },
+    navigateToSeries(){
+      this.$router.push({path: '/popular/series'})
+    },
   }
  }
  

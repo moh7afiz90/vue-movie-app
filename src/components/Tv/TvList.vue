@@ -10,13 +10,13 @@
             row
             wrap
             >
-              <v-flex
-                sm6 md6 lg3 xs12
-                v-for="movie in movies"
-                :key="movie.id"
-                >
-                  <Movie :movie="movie"></Movie>
-              </v-flex>
+            <v-flex
+              sm6 md6 lg4 xs12
+              v-for="episode in series"
+              :key="episode.id"
+              >
+              <Episode :episode="episode"></Episode>
+            </v-flex>
           </v-layout>
         </v-container>
     </v-flex>
@@ -24,25 +24,25 @@
 </template>
 
 <script>
-import Movie from './MoviesListCard.vue'
+import Episode from './TvListCard.vue'
 import axios from 'axios';
 import {imgURL} from '../../../config.js'
  export default {
   data: function(){
    return {
-     movies: [],
+     series: [],
      imgURL: imgURL,
    }
   },
   components: {
-    Movie
+    Episode
   },
   created(){
     axios
-    .get('http://localhost:3011/api/movie')
+    .get('http://localhost:3011/api/tv')
     .then(
       response => {
-        this.movies = response.data.results;
+        this.series = response.data.results;
         console.log(response.data.results)
       }
     )
