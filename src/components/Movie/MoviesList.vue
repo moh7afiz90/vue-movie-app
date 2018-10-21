@@ -39,7 +39,7 @@ import {imgURL} from '../../../config.js'
   },
   created(){
     axios
-    .get('http://localhost:3011/api/movie')
+    .get('api/movie')
     .then(
       response => {
         this.movies = response.data.results;
