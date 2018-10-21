@@ -2,6 +2,7 @@
   <div id="app">
     <v-app id="inspire" dark>
      <v-toolbar 
+        app
         fixed 
         :height="height"
         dark 
@@ -12,7 +13,7 @@
           @click.stop="drawer = !drawer"
           >
         </v-toolbar-side-icon>
-        <v-toolbar-title tag="bottn" @click="navigateToHome" class="white--text">
+        <v-toolbar-title class="white--text">
             Vue TMDB
         </v-toolbar-title>
         <v-spacer></v-spacer>
