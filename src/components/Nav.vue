@@ -11,12 +11,12 @@
       >
     </v-toolbar-side-icon>
     <v-toolbar-title class="white--text">Vue TMDB</v-toolbar-title>
-    <v-spacer></v-spacer>
+    <!-- <v-spacer></v-spacer>
     <v-toolbar-items>
       <v-btn flat raised>
         <v-icon>person</v-icon>
       </v-btn>
-    </v-toolbar-items>
+    </v-toolbar-items> -->
   </v-toolbar>
 </template>
         

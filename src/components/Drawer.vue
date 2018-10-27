@@ -63,6 +63,21 @@
         </v-btn>
       </v-list-tile-action>
       </v-list-tile>
+       <v-list-tile class="pt-3">
+      <v-list-tile-action>
+        <v-btn
+          @click="navigateToPersons"
+          large
+          flat
+          color="#01d277"
+          :loading="loading4" 
+          @click.native="loader = 'loading4'"
+          fab
+          >
+          <v-icon>person</v-icon>
+        </v-btn>
+      </v-list-tile-action>
+      </v-list-tile>
       </v-list>
   </v-navigation-drawer>
 </template>
@@ -103,6 +118,9 @@
     },
     navigateToSeries(){
       this.$router.push({path: '/popular/series'})
+    },
+    navigateToPersons(){
+      this.$router.push({path: '/popular/persons'})
     },
   }
  }

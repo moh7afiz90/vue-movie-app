@@ -17,11 +17,11 @@
             Vue TMDB
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-toolbar-items>
+        <!-- <v-toolbar-items>
           <v-btn flat raised>
             <v-icon>person</v-icon>
           </v-btn>
-        </v-toolbar-items>
+        </v-toolbar-items> -->
       </v-toolbar>
       <v-content>
         <router-view>

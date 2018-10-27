@@ -12,15 +12,25 @@ const port = 3011;
 app.use(json());
 app.use(cors());
 
-// Endpoints
+// ENDPOINTS
+// Popular Movies
 app.get("/api/movie", (req, res, next) => {
   axios.get(`${api_URL}/movie/popular/${api_key}`).then(response => {
     res.status(200).json(response.data);
   });
 });
+// Popular TV Series
 app.get("/api/tv", (req, res, next) => {
   axios
     .get(`${api_URL}/tv/popular/${api_key}&language=en-US&page=1`)
+    .then(response => {
+      res.status(200).json(response.data);
+    });
+});
+// Popular Person
+app.get("/api/person", (req, res, next) => {
+  axios
+    .get(`${api_URL}/person/popular/${api_key}&language=en-US&page=1`)
     .then(response => {
       res.status(200).json(response.data);
     });
